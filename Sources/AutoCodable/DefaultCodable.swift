@@ -104,3 +104,9 @@ extension DefaultCodable: Encodable where Value: Encodable {
         try container.encode(wrappedValue)
     }
 }
+
+extension DefaultCodable: Equatable where Value: Equatable {
+    public static func == (lhs: DefaultCodable, rhs: DefaultCodable) -> Bool {
+        lhs.wrappedValue == rhs.wrappedValue
+    }
+}
